@@ -44,10 +44,10 @@ cd myapi
 ## 🐳 2. Build and Tag Docker Image
 
 ```bash
-docker build -t gcr.io/[PROJECT_ID]/myapi .
+docker build -t gcr.io/project-eksplor/myapi .
 ```
 
-Replace `[PROJECT_ID]` with your GCP project ID.
+Replace `project-eksplor` with your GCP project ID.
 
 ---
 
@@ -55,7 +55,7 @@ Replace `[PROJECT_ID]` with your GCP project ID.
 
 ```bash
 gcloud auth login
-gcloud config set project [PROJECT_ID]
+gcloud config set project project-eksplor
 gcloud auth configure-docker
 ```
 
@@ -64,7 +64,7 @@ gcloud auth configure-docker
 ## 📤 4. Push Docker Image to Google Container Registry
 
 ```bash
-docker push gcr.io/[PROJECT_ID]/myapi
+docker push gcr.io/project-eksplor/myapi
 ```
 
 ---
@@ -74,7 +74,7 @@ docker push gcr.io/[PROJECT_ID]/myapi
 ### Step 1: Create VM Instance
 
 ```bash
-gcloud compute instances create-with-container myapi-vm   --container-image=gcr.io/[PROJECT_ID]/myapi   --zone=asia-southeast1-a   --tags=http-server   --container-port=80
+gcloud compute instances create-with-container myapi-vm   --container-image=gcr.io/project-eksplor/myapi   --zone=asia-southeast1-a   --tags=http-server   --container-port=80
 ```
 
 ### Step 2: Allow HTTP Traffic
@@ -141,7 +141,7 @@ spec:
     spec:
       containers:
       - name: myapi
-        image: gcr.io/[PROJECT_ID]/myapi
+        image: gcr.io/project-eksplor/myapi
         ports:
         - containerPort: 80
 ```
@@ -223,7 +223,7 @@ gcloud container clusters delete my-cluster --zone=asia-southeast1-a
 gcloud compute instances delete myapi-vm --zone=asia-southeast1-a
 
 # Delete image
-gcloud container images delete gcr.io/[PROJECT_ID]/myapi
+gcloud container images delete gcr.io/project-eksplor/myapi
 ```
 
 ---
