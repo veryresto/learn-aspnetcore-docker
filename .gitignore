@@ -1,0 +1,23 @@
+# Ignore bin and obj directories
+bin/
+obj/
+
+# Ignore .vs, .vscode, and other IDE files
+.vs/
+.vscode/
+.idea/
+
+# Ignore NuGet packages
+**/packages/*
+!**/packages/repositories.config
+
+# Ignore log files
+*.log
+
+# Ignore backup files
+*.bak
+*.tmp
+
+# Ignore .NET Core SDK files
+.global.json
+nuget.config
