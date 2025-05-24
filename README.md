@@ -93,6 +93,11 @@ gcloud compute instances list
 
 Access via: `http://<EXTERNAL_IP>/weatherforecast`
 
+### SSH into VM
+```bash
+gcloud compute ssh myapi-vm
+```
+
 ---
 
 ## 🔁 OPTION B: Deploy to Google Kubernetes Engine (GKE)
