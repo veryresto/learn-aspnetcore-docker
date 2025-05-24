@@ -35,7 +35,7 @@ MyApi/
 ## 🚀 1. Clone & Build the Project
 
 ```bash
-git clone https://github.com/veryresto/myapi.git
+git clone https://github.com/veryresto/learn-aspnetcore-docker.git myapi
 cd myapi
 ```
 
@@ -99,8 +99,17 @@ Access via: `http://<EXTERNAL_IP>/weatherforecast`
 
 ### Step 1: Create Kubernetes Cluster
 
+<details>
+  <summary> Due to quota issue, disk type & size are specified </summary
+  ERROR: (gcloud.container.clusters.create) ResponseError: code=403, message=Insufficient regional quota to satisfy request: resource "SSD_TOTAL_GB": request requires '300.0' and is short '50.0'. project has a quota of '250.0' with '250.0' available.
+</details>
+
 ```bash
-gcloud container clusters create my-cluster   --zone=asia-southeast1-a
+gcloud container clusters create my-cluster \
+  --zone asia-southeast1-a \
+  --disk-type pd-ssd \
+  --disk-size 20GB
+
 ```
 
 ### Step 2: Authenticate kubectl
